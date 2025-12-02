@@ -55,6 +55,8 @@ A beautiful, interactive logical reasoning test application built with Next.js, 
    NEXT_PUBLIC_APP_URL=http://localhost:3000
    ```
 
+   **📖 Having issues? See the [Stripe Setup Guide](./STRIPE_SETUP.md) for detailed instructions and troubleshooting.**
+
 4. **Run the development server**
    ```bash
    npm run dev

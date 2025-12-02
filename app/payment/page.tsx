@@ -45,20 +45,43 @@ export default function Payment() {
         }),
       })
 
-      const { sessionId } = await response.json()
+      const data = await response.json()
+
+      // Check if the request was successful
+      if (!response.ok) {
+        console.error('API Error:', data)
+        alert(data.error || 'Failed to create checkout session. Please check your Stripe configuration.')
+        setIsProcessing(false)
+        return
+      }
+
+      if (!data.sessionId) {
+        console.error('No session ID returned')
+        alert('Invalid response from server. Please try again.')
+        setIsProcessing(false)
+        return
+      }
 
       // Redirect to Stripe Checkout
       const stripe = await stripePromise
-      const { error } = await stripe!.redirectToCheckout({ sessionId })
+
+      if (!stripe) {
+        console.error('Stripe failed to load')
+        alert('Payment system failed to load. Please check your Stripe publishable key.')
+        setIsProcessing(false)
+        return
+      }
+
+      const { error } = await stripe.redirectToCheckout({ sessionId: data.sessionId })
 
       if (error) {
-        console.error('Error:', error)
-        alert('Payment failed. Please try again.')
+        console.error('Stripe Error:', error)
+        alert(`Payment failed: ${error.message}`)
         setIsProcessing(false)
       }
     } catch (error) {
       console.error('Error:', error)
-      alert('An error occurred. Please try again.')
+      alert('An error occurred. Please try again or check the console for details.')
       setIsProcessing(false)
     }
   }
