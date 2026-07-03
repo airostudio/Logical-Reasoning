@@ -1,0 +1,46 @@
+<svg width="800" height="300" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#1D4ED8;stop-opacity:1" />
+          </linearGradient>
+          <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#EF4444;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#B91C1C;stop-opacity:1" />
+          </linearGradient>
+          <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#047857;stop-opacity:1" />
+          </linearGradient>
+          <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+            <feOffset dx="0" dy="2" result="offsetblur"/>
+            <feComponentTransfer>
+              <feFuncA type="linear" slope="0.3"/>
+            </feComponentTransfer>
+            <feMerge>
+              <feMergeNode/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+        <rect width="800" height="300" fill="#F8FAFC"/>
+
+        <!-- Circle (Blue) -->
+        <circle cx="100" cy="150" r="40" fill="url(#grad1)" filter="url(#shadow)"/>
+
+        <!-- Square (Red) -->
+        <rect x="210" y="110" width="80" height="80" fill="url(#grad2)" filter="url(#shadow)"/>
+
+        <!-- Triangle (Green) -->
+        <polygon points="390,110 430,190 350,190" fill="url(#grad3)" filter="url(#shadow)"/>
+
+        <!-- Circle (Blue) -->
+        <circle cx="520" cy="150" r="40" fill="url(#grad1)" filter="url(#shadow)"/>
+
+        <!-- Square (Red) -->
+        <rect x="610" y="110" width="80" height="80" fill="url(#grad2)" filter="url(#shadow)"/>
+
+        <!-- Question Mark -->
+        <text x="750" y="170" font-family="system-ui, -apple-system, sans-serif" font-size="60" font-weight="bold" fill="#6B7280">?</text>
+      </svg>

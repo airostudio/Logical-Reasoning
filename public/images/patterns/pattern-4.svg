@@ -1,0 +1,46 @@
+<svg width="800" height="300" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="cyan-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#06B6D4;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#0891B2;stop-opacity:1" />
+          </linearGradient>
+          <filter id="shadow4">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+            <feOffset dx="0" dy="1"/>
+            <feComponentTransfer>
+              <feFuncA type="linear" slope="0.3"/>
+            </feComponentTransfer>
+            <feMerge>
+              <feMergeNode/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+        <rect width="800" height="300" fill="#F8FAFC"/>
+
+        <!-- 1 dot -->
+        <circle cx="80" cy="150" r="15" fill="url(#cyan-grad)" filter="url(#shadow4)"/>
+
+        <!-- 2 dots -->
+        <circle cx="205" cy="150" r="15" fill="url(#cyan-grad)" filter="url(#shadow4)"/>
+        <circle cx="245" cy="150" r="15" fill="url(#cyan-grad)" filter="url(#shadow4)"/>
+
+        <!-- 4 dots -->
+        <circle cx="340" cy="135" r="15" fill="url(#cyan-grad)" filter="url(#shadow4)"/>
+        <circle cx="380" cy="135" r="15" fill="url(#cyan-grad)" filter="url(#shadow4)"/>
+        <circle cx="340" cy="165" r="15" fill="url(#cyan-grad)" filter="url(#shadow4)"/>
+        <circle cx="380" cy="165" r="15" fill="url(#cyan-grad)" filter="url(#shadow4)"/>
+
+        <!-- 8 dots -->
+        <circle cx="475" cy="130" r="12" fill="url(#cyan-grad)" filter="url(#shadow4)"/>
+        <circle cx="510" cy="130" r="12" fill="url(#cyan-grad)" filter="url(#shadow4)"/>
+        <circle cx="545" cy="130" r="12" fill="url(#cyan-grad)" filter="url(#shadow4)"/>
+        <circle cx="580" cy="130" r="12" fill="url(#cyan-grad)" filter="url(#shadow4)"/>
+        <circle cx="475" cy="170" r="12" fill="url(#cyan-grad)" filter="url(#shadow4)"/>
+        <circle cx="510" cy="170" r="12" fill="url(#cyan-grad)" filter="url(#shadow4)"/>
+        <circle cx="545" cy="170" r="12" fill="url(#cyan-grad)" filter="url(#shadow4)"/>
+        <circle cx="580" cy="170" r="12" fill="url(#cyan-grad)" filter="url(#shadow4)"/>
+
+        <!-- Question Mark -->
+        <text x="700" y="170" font-family="system-ui" font-size="60" font-weight="bold" fill="#6B7280">?</text>
+      </svg>

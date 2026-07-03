@@ -1,0 +1,39 @@
+<svg width="800" height="300" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="purple-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#A855F7;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#7C3AED;stop-opacity:1" />
+          </linearGradient>
+          <filter id="shadow2" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+            <feOffset dx="0" dy="2" result="offsetblur"/>
+            <feComponentTransfer>
+              <feFuncA type="linear" slope="0.3"/>
+            </feComponentTransfer>
+            <feMerge>
+              <feMergeNode/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+        <rect width="800" height="300" fill="#F8FAFC"/>
+
+        <!-- Triangle (3 sides) -->
+        <polygon points="80,110 120,190 40,190" fill="url(#purple-grad)" filter="url(#shadow2)"/>
+        <text x="75" y="230" font-family="system-ui" font-size="14" font-weight="600" fill="#6B7280" text-anchor="middle">3</text>
+
+        <!-- Square (4 sides) -->
+        <rect x="180" y="110" width="80" height="80" fill="url(#purple-grad)" filter="url(#shadow2)"/>
+        <text x="220" y="230" font-family="system-ui" font-size="14" font-weight="600" fill="#6B7280" text-anchor="middle">4</text>
+
+        <!-- Pentagon (5 sides) -->
+        <polygon points="360,110 395,140 380,185 320,185 305,140" fill="url(#purple-grad)" filter="url(#shadow2)"/>
+        <text x="350" y="230" font-family="system-ui" font-size="14" font-weight="600" fill="#6B7280" text-anchor="middle">5</text>
+
+        <!-- Hexagon (6 sides) -->
+        <polygon points="480,110 530,130 530,170 480,190 430,170 430,130" fill="url(#purple-grad)" filter="url(#shadow2)"/>
+        <text x="480" y="230" font-family="system-ui" font-size="14" font-weight="600" fill="#6B7280" text-anchor="middle">6</text>
+
+        <!-- Question Mark -->
+        <text x="650" y="170" font-family="system-ui, -apple-system, sans-serif" font-size="60" font-weight="bold" fill="#6B7280">?</text>
+      </svg>

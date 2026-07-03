@@ -5,12 +5,8 @@ export interface Question {
   options: string[]
   correctAnswer: number
   explanation: string
-  // For abstract questions
-  pattern?: {
-    shapes: string[]
-    colors: string[]
-    sequence: string
-  }
+  // For abstract questions - now using image paths
+  imageUrl?: string
 }
 
 export const testQuestions: Question[] = [
@@ -18,12 +14,8 @@ export const testQuestions: Question[] = [
   {
     id: 1,
     type: 'abstract',
-    question: 'Study the pattern below. Which shape comes next in the sequence?',
-    pattern: {
-      shapes: ['circle', 'square', 'triangle', 'circle', 'square'],
-      colors: ['blue', 'red', 'green', 'blue', 'red'],
-      sequence: 'repeating-pattern'
-    },
+    question: 'Study the pattern sequence. Which shape comes next?',
+    imageUrl: '/images/patterns/pattern-1.svg',
     options: ['Triangle (Green)', 'Circle (Blue)', 'Square (Red)', 'Pentagon (Yellow)'],
     correctAnswer: 0,
     explanation: 'The pattern repeats: circle-square-triangle with colors blue-red-green. Next should be triangle in green.'
@@ -31,12 +23,8 @@ export const testQuestions: Question[] = [
   {
     id: 2,
     type: 'abstract',
-    question: 'Which shape completes the pattern? The number of sides increases by 1 each time.',
-    pattern: {
-      shapes: ['triangle', 'square', 'pentagon', 'hexagon'],
-      colors: ['purple', 'purple', 'purple', 'purple'],
-      sequence: 'increasing-sides'
-    },
+    question: 'Identify the next shape in the sequence. The number of sides increases by 1 each time.',
+    imageUrl: '/images/patterns/pattern-2.svg',
     options: ['Octagon', 'Heptagon (7 sides)', 'Circle', 'Pentagon'],
     correctAnswer: 1,
     explanation: 'The pattern shows shapes with increasing sides: 3, 4, 5, 6. Next is 7 sides (heptagon).'
@@ -44,12 +32,8 @@ export const testQuestions: Question[] = [
   {
     id: 3,
     type: 'abstract',
-    question: 'The shapes rotate 45° clockwise each step. Which comes next?',
-    pattern: {
-      shapes: ['arrow-up', 'arrow-right', 'arrow-down', 'arrow-left'],
-      colors: ['orange', 'orange', 'orange', 'orange'],
-      sequence: 'rotation'
-    },
+    question: 'The arrow rotates 90° clockwise each step. Which direction comes next?',
+    imageUrl: '/images/patterns/pattern-3.svg',
     options: ['Arrow Up', 'Arrow Down', 'Arrow Right', 'Arrow Left'],
     correctAnswer: 0,
     explanation: 'After 4 rotations of 90°, the arrow completes a full circle and points up again.'
@@ -57,12 +41,8 @@ export const testQuestions: Question[] = [
   {
     id: 4,
     type: 'abstract',
-    question: 'The pattern shows shapes doubling in quantity. What comes next?',
-    pattern: {
-      shapes: ['1-dot', '2-dots', '4-dots', '8-dots'],
-      colors: ['cyan', 'cyan', 'cyan', 'cyan'],
-      sequence: 'doubling'
-    },
+    question: 'Observe the pattern where quantities double. What comes next?',
+    imageUrl: '/images/patterns/pattern-4.svg',
     options: ['12 dots', '16 dots', '10 dots', '8 dots'],
     correctAnswer: 1,
     explanation: 'Each step doubles: 1, 2, 4, 8. Next is 8 × 2 = 16 dots.'
@@ -70,12 +50,8 @@ export const testQuestions: Question[] = [
   {
     id: 5,
     type: 'abstract',
-    question: 'Shapes alternate between filled and outlined, while size increases. What\'s next?',
-    pattern: {
-      shapes: ['small-filled-circle', 'medium-outline-circle', 'large-filled-circle'],
-      colors: ['pink', 'pink', 'pink'],
-      sequence: 'alternating-fill-size'
-    },
+    question: 'Shapes alternate between filled and outlined while increasing in size. What\'s next?',
+    imageUrl: '/images/patterns/pattern-5.svg',
     options: ['Extra Large Filled Circle', 'Extra Large Outline Circle', 'Small Filled Circle', 'Medium Outline Circle'],
     correctAnswer: 1,
     explanation: 'Alternates filled/outline (next is outline) and size increases (next is extra large).'
@@ -83,12 +59,8 @@ export const testQuestions: Question[] = [
   {
     id: 6,
     type: 'abstract',
-    question: 'Colors shift through the rainbow spectrum. Which color comes next?',
-    pattern: {
-      shapes: ['circle', 'circle', 'circle', 'circle', 'circle'],
-      colors: ['red', 'orange', 'yellow', 'green', 'blue'],
-      sequence: 'color-spectrum'
-    },
+    question: 'Colors progress through the spectrum. Which color comes next?',
+    imageUrl: '/images/patterns/pattern-6.svg',
     options: ['Purple', 'Indigo', 'Red', 'Pink'],
     correctAnswer: 1,
     explanation: 'Following the rainbow spectrum: red, orange, yellow, green, blue, indigo, violet.'
@@ -263,7 +235,7 @@ export function calculateScore(answers: number[]): {
     description = 'Good logical reasoning abilities. You can effectively solve most logical problems with consistent accuracy.'
   } else if (percentage >= 45) {
     level = 'Developing'
-    description: 'Moderate logical reasoning abilities. With practice, you can improve your pattern recognition and deductive skills.'
+    description = 'Moderate logical reasoning abilities. With practice, you can improve your pattern recognition and deductive skills.'
   } else {
     level = 'Emerging'
     description = 'Basic logical reasoning abilities. Focus on developing fundamental pattern recognition and logical thinking skills.'
